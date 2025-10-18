@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฟอร์มสำหรับการยืมร่ม</title>
+    <link rel="stylesheet" href="pageCafeteria2.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
+    <div class="main-container">
+        
+        <div class="form-section">
+            <header>
+                <img src="BULogo.png" class="logo"> 
+                <h1>แบบฟอร์มสำหรับการยืมร่มภายในมหาลัยกรุงเทพ</h1>
+            </header>
+            
+            <form id="borrowForm">
+                <form id="borrowForm">
+                    <div class="input-group">
+                        <label for="fullname">ชื่อ-นามสกุล :</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+            
+                    <div class="input-group">
+                        <label for="studentId">รหัสนักศึกษา :</label>
+                        <input type="text" id="studentId" name="studentId" required>
+                    </div>
+            
+                    <div class="input-group">
+                        <label for="location">สถานที่คุณเลือก :</label>
+                        <select id="location" name="location">
+                            <option>Building Cafeteria2</option>
+                        </select>
+                    </div>
+            
+                    <div class="input-group">
+                        <label for="duration">เวลาที่ยืม :</label>
+                        <select id="duration" name="duration">
+                            <option value="" disabled selected>--- กรุณาเลือกเวลาที่ต้องการยืม ---</option>
+                            <option>1 Day</option>
+                            <option>3 Day</option>
+                            <option>7 Day</option>
+                        </select>
+                    </div>
+            
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+            
+                    <div class="input-group">
+                        <label for="mobile">เบอร์โทรศัพท์ในการติดต่อ :</label>
+                        <input type="tel" id="mobile" name="mobile" required>
+                    </div>
+            
+                    <button type="button" class="send-button cancel-button" onclick="cancelBorrowing()">ยกเลิก</button>
+                    <button type="button" class="send-button" onclick="confirmBorrowing()">ยืนยันการยืม</button>
+                </form>
+            </form>
+            
+        </div>
+        
+        <div class="right-section">
+            <div class="right-box">
+                <div class="icon-placeholder"></div> 
+            </div>
+        </div>
+
+    </div>
+    <script src="pageCafeteria2.js"></script> 
+</body>
+</html>
