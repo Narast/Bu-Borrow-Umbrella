@@ -1,0 +1,165 @@
+* {
+    font-family: "Poppins" , sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: url(background1.jpg);
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden; /* ป้องกัน raindrop หลุดออกนอกขอบ */
+}
+
+.container {
+    margin: 40px auto 0 auto; /* ระยะห่างจากขอบบนคงเดิม */
+    background: rgba(0, 0, 0, 0.15); /* เพิ่มความโปร่งแสงเล็กน้อย */
+    width: 450px; /* ความกว้างคงเดิม */
+    min-height: 350px; /* ความสูงขั้นต่ำคงเดิม */
+    padding: 32px; /* ช่องว่างภายในคงเดิม */
+    border-radius: 16px; /* ความโค้งมนคงเดิม */
+    border: solid 5px rgba(255, 255, 255, 0.2); /* ปรับความโปร่งแสงของขอบ */
+    backdrop-filter: blur(25px); /* ลดการเบลอลงเล็กน้อยเพื่อความชัดเจน */
+    box-shadow: 0px 0px 40px 15px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้เด่นขึ้น */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงแบบเรียลไทม์ */
+}
+.container:hover {
+    background: rgba(0, 0, 0, 0.2); /* เปลี่ยนความโปร่งแสงเมื่อชี้เมาส์ */
+    box-shadow: 0px 0px 50px 20px rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อ hover */
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px; /* ปรับระยะห่างด้านบน */
+  width: 210px;     /* ปรับขนาดโลโก้ */
+}
+
+.login-title {
+    margin-bottom: 16px;
+}
+
+.input-box {
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 18px 24px 18px 48px;
+    border-radius: 99px;
+    border: solid 3px transparent;
+    background: rgb(255, 255, 255,0.1);
+    outline: none;
+    caret-color: white;
+    color: white;
+    font-weight: 500;
+    font-size: 1.3rem;
+    transition: 0.25s;
+    box-sizing: border-box;
+    cursor: text;
+    position: relative;
+    z-index: 10; 
+    
+}
+
+.input-box input:focus {
+    border: solid 3px rgb(255,255,255,0.25);
+}
+.input-box input::placeholder {
+    color: rgb(255,255 ,255,0.75);
+}
+.input-box input::-ms-reveal {
+    filter: invert(100%);
+}
+.input-box i {
+    position: absolute;
+    top: 50%;
+    transform:  translateY(-50%);
+    left: 14px;
+    color: rgb(255,255,255,0.75);
+    font-size: 18px;
+    transition: 0.25s;
+}
+.input-box input:focus+i {
+    color: white;
+}
+
+.login-button {
+    width: 100%;
+    align-self: center;
+    margin-top: 24px;
+    padding: 18px 0;
+    background: #32cdd5;
+    border: none;
+    border-radius: 99px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    outline: transparent 3px solid;
+    transition: 0.1s;
+
+}
+.login-button:focus {
+    outline: #32cdd58a 3px solid;
+}
+
+.raindrop {
+  position: absolute;
+  top: 0;
+  background: rgba(255,255,255,0.5);
+  border-radius: 2px;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  to {
+    top: 100vh;
+  }
+}
+@media (max-width: 768px) {
+    
+    body {
+        padding: 10px;
+        min-height: 100dvh; /* ใช้ min-height เพื่อป้องกันปัญหาเนื้อหาล้น */
+        height: auto;
+        overflow-x: hidden; /* ป้องกันไม่ให้มีแถบเลื่อนแนวนอน */
+    }
+    
+    .container {
+        width: 90%; /* ใช้ความกว้าง 90% ของหน้าจอโทรศัพท์ */
+        max-width: none; /* ยกเลิกการจำกัดความกว้างสูงสุด 450px */
+        margin: 20px auto 0 auto; /* ปรับลดระยะห่างด้านบน */
+        padding: 20px; /* ลด padding รอบคอนเทนเนอร์ลง */
+        min-height: auto; /* ให้ความสูงปรับตามเนื้อหา */
+        border-radius: 12px; /* ลดความโค้งมนลงเล็กน้อย */
+        box-shadow: 0px 0px 20px 10px rgb(0,0,0,0.1); /* ลดขนาดเงาลง */
+    }
+
+    .form-section {
+        padding: 20px 15px; /* ลด padding ลงสำหรับมือถือ */
+    }
+    
+    
+    .login-button {
+        padding: 15px; /* ทำให้ปุ่มใหญ่ขึ้นนิดหน่อยสำหรับการสัมผัส */
+        margin-top: 25px;
+        width: 100%; /* ทำให้ปุ่มเต็มความกว้าง */
+        max-width: none;
+    }
+}

@@ -5,54 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แบบฟอร์มสำหรับการคืนร่ม</title>
     <link rel="stylesheet" href="return.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
     <div class="main-container">
-        
         <div class="form-section">
             <header>
                 <img src="BULogo.png" class="logo"> 
                 <h1>แบบฟอร์มสำหรับการคืนร่มภายในมหาลัยกรุงเทพ</h1>
             </header>
             
-            <form id="borrowForm"> 
-
+            <form id="returnForm"> 
                 <div class="input-group">
-                    <label for="name">ชื่อ-นามกสุล : </label>
-                    <input type="text" id="name" name="name" value=""> 
+                    <label for="fullname">ชื่อ-นามสกุล: </label>
+                    <input type="text" id="fullname" name="fullname" readonly>
                 </div>
 
                 <div class="input-group">
-                    <label for="name">รหัสนักศึกษา : </label>
-                    <input type="text" id="name" name="name" value=""> 
+                    <label for="studentId">รหัสนักศึกษา: </label>
+                    <input type="text" id="studentId" name="studentId" readonly>
                 </div>
 
                 <div class="input-group">
-                    <label for="location">สถานที่คุณเลือกคืน : </label>
-                    <select id="location" name="location"> 
-                        <option>Building A3</option>
-                        <option>Building C6</option>
-                        <option>Building Cafeteria 1</option>
-                        <option>Building Cafeteria 2</option>
-                    </select>
-                </div>
-
-
-                <div class="input-group">
-                    <label for="email">Email : </label>
-                    <input type="text" id="email" name="email" value=""> 
+                    <label for="location">สถานที่ที่ต้องคืน: </label>
+                    <input type="text" id="location" name="location" readonly>
                 </div>
 
                 <div class="input-group">
-                    <label for="mobile">เบอร์โทรศัพท์ในการติดต่อ : </label>
-                    <input type="tel" id="mobile" name="mobile" value="">
+                    <label for="email">Email: </label>
+                    <input type="text" id="email" name="email" readonly>
+                </div>
+
+                <div class="input-group">
+                    <label for="mobile">เบอร์โทรศัพท์: </label>
+                    <input type="tel" id="mobile" name="mobile" readonly>
                 </div>
 
                 <div class="input-group rating-group">
-                    <label>ให้คะแนนความพึงพอใจ (5 ดาว) : </label>
+                    <label>ให้คะแนนความพึงพอใจ (5 ดาว): </label>
                     <div class="rating" id="returnRating">
                         <i class="far fa-star star" data-value="1"></i>
                         <i class="far fa-star star" data-value="2"></i>
@@ -60,22 +51,19 @@
                         <i class="far fa-star star" data-value="4"></i>
                         <i class="far fa-star star" data-value="5"></i>
                     </div>
-
-                <div class="input-group">
-                    <label for="umbrellaPhoto">อัพโหลดรูปภาพการคืนร่ม (เพื่อเป็นหลักฐาน) : </label>
-                    <input type="file" id="umbrellaPhoto" name="umbrellaPhoto" accept="image/*" required>
+                    <input type="hidden" id="ratingValue" name="ratingValue" value="0">
                 </div>
 
-                    <input type="hidden" id="ratingValue" name="ratingValue" value="0">
+                <div class="input-group">
+                    <label for="umbrellaPhoto">อัพโหลดรูปภาพการคืนร่ม (เพื่อเป็นหลักฐาน): </label>
+                    <input type="file" id="umbrellaPhoto" name="umbrellaPhoto" accept="image/*" required>
                 </div>
                 
                 <button type="button" class="send-button" onclick="confirmReturn()">ยืนยันการคืน</button>
             </form>
-            
         </div>
-        
-
     </div>
-    <script src="return.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="return.js"></script>
 </body>
 </html>

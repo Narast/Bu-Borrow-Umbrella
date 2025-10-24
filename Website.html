@@ -12,17 +12,12 @@
 </head>
 <body>
     <img src="BULogo.png" class="logo"> 
-    <form class="container" id="loginForm"> <h1 class="Login-title">Login</h1>
+    <form class="container" id="loginForm" onsubmit="return false;"> <h1 class="Login-title">Login</h1>
 
         <section class="input-box">
             <input type="text" name="username" placeholder="Student ID" id="studentId"> 
             <i class="bx bxs-user"></i>
         </section>
-
-        <section class="input-box">
-            <input type="password" name="password" placeholder="Password" id="password"> <i class="bx bxs-lock-alt"></i>
-        </section>
-        
         <button class="login-button" type="button" onclick="handleLogin()"> 
             Login
         </button>
