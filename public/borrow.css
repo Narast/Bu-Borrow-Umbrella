@@ -7,6 +7,7 @@
     box-sizing: border-box;
     user-select:  none;
     color: white;
+    
 
 }
 .main-slides {
@@ -39,6 +40,7 @@
     max-height: 100%;
     min-width: 700px;
     width: 70vw;
+    
 
 }
 
@@ -52,7 +54,7 @@
     align-items:  end;
 }
 
-.swiper-slid ::before {
+.swiper-slid::before {
     content: "";
     position: absolute;
     background:  linear-gradient(to top,rgb(0,0,0,0.75), transparent);
@@ -62,7 +64,7 @@
 
 .slide-info {
     margin-bottom: 25px;
-    margin-left: -15%;
+    margin-left: -5%;
     
 }
 .slide-title,

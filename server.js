@@ -128,7 +128,14 @@ website_bu_unbella.post('/api/return-umbrella', upload.single('umbrellaPhoto'), 
     const photoPath = req.file ? req.file.path : '';
 
     try {
-        const borrowRecord = await BorrowData.findOneAndDelete({ studentId, returned: false });
+        // ✅ อัปเดตสถานะ returned เป็น true
+        const borrowRecord = await BorrowData.findOneAndUpdate(
+            { studentId, returned: false }, // ค้นหารายการที่ยังไม่คืน
+            // อัปเดต returned เป็น true, บันทึกรูป และ rating
+            { returned: true, photoPath: photoPath, rating: parseInt(rating) || 0, returnedAt: Date.now() }, 
+            { new: true } // ต้องมี { new: true } เพื่อให้ได้ record ที่ถูกอัปเดตแล้ว
+        );
+        
         if (borrowRecord) {
             // บันทึกประวัติการคืนใน ReturnData
             const returnRecord = new ReturnData({
@@ -139,7 +146,8 @@ website_bu_unbella.post('/api/return-umbrella', upload.single('umbrellaPhoto'), 
             });
             await returnRecord.save();
 
-            console.log('--- ลบข้อมูลการยืมและบันทึกการคืนสำเร็จ ---', borrowRecord._id);
+            // ✅ แก้ไข Log Message ที่ทำให้เข้าใจผิด
+            console.log('--- อัปเดตสถานะยืมเป็น "คืนแล้ว" และบันทึกการคืนสำเร็จ ---', borrowRecord._id);
             return res.json({
                 success: true,
                 message: 'คืนร่มสำเร็จ'

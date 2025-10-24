@@ -5,9 +5,9 @@ async function handleLogin() {
     
     let errorMessage = '';
 
-    // 1. ตรวจสอบรหัสนักศึกษา (10 หลัก)
-    if (!/^\d{10}$/.test(studentId)) {
-        errorMessage += 'รหัสนักศึกษาไม่ถูกต้อง ต้องเป็นตัวเลข 10 หลัก<br>';
+    // 1. ตรวจสอบรหัสนักศึกษา / บุคลากร (10 หลัก)
+    if (!/^\d{6}$/.test(studentId)) {
+        errorMessage += 'รหัสนักศึกษา / บุคลากรไม่ถูกต้อง <br>';
     }
 
     // 3. จัดการข้อผิดพลาดในฝั่ง client
