@@ -6,7 +6,7 @@ async function handleLogin() {
     let errorMessage = '';
 
     // 1. ตรวจสอบรหัสนักศึกษา / บุคลากร (10 หลัก)
-    if (!/^\d{6}$/.test(studentId)) {
+    if (!/^([A-Z0-9]{6}|[A-Z0-9]{10})$/.test(studentId.trim())) {
         errorMessage += 'รหัสนักศึกษา / บุคลากรไม่ถูกต้อง <br>';
     }
 

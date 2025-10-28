@@ -24,7 +24,17 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     background-color: white;
     border-radius: 8px;
-    overflow: hidden; /* สำคัญสำหรับการจัดการขอบเขต */
+    overflow: visible; /* สำคัญสำหรับการจัดการขอบเขต */
+    position: relative;
+
+}
+.maskot3 {
+    position: absolute; /* ทำให้รูปภาพลอยออกมาจาก flow ปกติ */
+    right: -60px; /* ย้ายไปทางขวา  นอกขอบของ parent */
+    bottom: -50px; /* จัดให้อยู่ด้านล่างของ parent */
+    width: 140px; /* กำหนดขนาดของรูปภาพตามความเหมาะสม */
+    height: auto; /* รักษาอัตราส่วน */
+    z-index: 10; /* ให้รูปภาพอยู่ด้านหน้าองค์ประกอบอื่นๆ ถ้ามี */
 }
 
 /* === ส่วนซ้าย: ฟอร์ม === */
